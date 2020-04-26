@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<!-- saved from url=(0044)https://restocksim.com/projectdestroyer/main -->
+<html data-lt-installed="true"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="./main_files/bootstrap.min.css">
+    <link href="./main_files/css" rel="stylesheet">
+    <link href="./main_files/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./main_files/site.html">
+    <meta name="viewport" content="width=device-width,initial-scale">
+    
+    <style>
+      html{
+        font-family: 'Roboto',sans-serif;
+      }
+      .img-responsive1{
+        width: 100%;
+        max-width: 800px;
+        height: auto}
+        .img-responsive2{
+        width: 12%;
+        max-width: 110px;
+        height: auto}
+        .img-responsive3{
+        margin-left: 15px;
+        width: 12%;
+        max-width: 110px;
+        height: auto}
+    </style>
+
+  </head>
+
+  <body data-gr-c-s-loaded="true">
+
+<!-- Timer -->
+    
+    <!--Jquery-->
+    <script src="./main_files/jquery.min.js"></script>
+    <!--End of Jquery-->
+
+    <style>
+      .finish {
+          position: fixed;
+          font-weight: bold;
+          width: 100%;
+          margin-left: 0px;
+          padding: 20px;
+          margin-right: 10px;
+          height: 100%;
+          display: none;
+          border-radius: 6px;
+          background: rgba(0, 0, 0, 0.8);
+          z-index: 9999999;
+          text-align: center;
+      }
+  
+      .inner {
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          position: relative;
+      }
+  
+      #stopwatch,
+      .text {
+          font-family: Courier New, monospace;
+      }
+  
+      .bot-bar {
+          position: fixed;
+          bottom: 0;
+          height: 70px;
+          width: 100vw;
+          font-weight: bold;
+          display: none;
+          justify-content: center;
+          align-items: center;
+          background: #333333;
+          z-index: 9999;
+      }
+      #password_page{
+        width: 100%;
+        max-width: 1800px;
+        height: auto}
+  </style>
+  
+  <div class="finish" id="finish">
+      <div class="inner">
+          <h2 style="text-align:center;color:white;font-size: 28px !important;margin-bottom:0px;margin-top:0px;">
+              You finished in...
+          </h2>
+          <h2 style="text-align:center;color:#42d97c;font-size: 48px !important;margin-bottom:0px;margin-top:0px;">
+              <span class="text" id="text"></span>
+          </h2>
+          <h2 style="text-align:center;color:white;font-size: 18px !important;margin-bottom:0px;margin-top:0px;">
+              You can do better!
+          </h2>
+          <button id="tryagain" style="background-color:#42d97c;border:none;font-size:28px;max-width:420px; color:white;width:100%;padding:10px;margin-top:15px;text-align:center">Try
+              Again</button>
+      </div>
+  </div>
+  
+  <div class="bot-bar" id="bar" style="display: flex;">
+      <h2 style="text-align:center;color:#42d97c;font-size: 48px !important;margin-bottom:0px;margin-top:0px" class="countHolder">
+          <span id="stopwatch">00:25:209</span>
+      </h2>
+  </div>
+  
+  
+  
+  <script>
+      function setCookie(cname, cvalue, exdays) {
+          var d = new Date();
+          d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+          var expires = "expires=" + d.toUTCString();
+          document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+      }
+
+      function getCookie(cname) {
+          var name = cname + "=";
+          var decodedCookie = decodeURIComponent(document.cookie);
+          var ca = decodedCookie.split(';');
+          for (var i = 0; i < ca.length; i++) {
+              var c = ca[i];
+              while (c.charAt(0) == ' ') {
+                  c = c.substring(1);
+              }
+              if (c.indexOf(name) == 0) {
+                  return c.substring(name.length, c.length);
+              }
+          }
+          return "";
+      }
+
+      var Stopwatch = function (elem, options) {
+
+          var timer = createTimer(),
+              startButton = createButton("start", start),
+              starter = true,
+              stopButton = createButton("stop", stop),
+              resetButton = createButton("reset", reset),
+              offset,
+              htim,
+              clock,
+              interval;
+
+
+          // default options
+          options = options || {};
+          options.delay = options.delay || 1;
+
+          // append elements     
+          elem.appendChild(timer);
+
+          // initialize
+          reset();
+
+          // private functions
+          function createTimer() {
+              return document.createElement("span");
+          }
+
+          function createButton(action, handler) {
+              var a = document.createElement("a");
+              a.href = "#" + action;
+              a.innerHTML = action;
+              a.addEventListener("click", function (event) {
+                  handler();
+                  event.preventDefault();
+              });
+              return a;
+          }
+
+          function start() {
+              if (!interval) {
+                  var clockCook = getCookie("clock");
+                  var offsetCook = getCookie("offset");
+                  if (clockCook != "" && offsetCook != "") {
+                      offset = Number(offsetCook);
+                      clock = Number(clock);
+                      interval = setInterval(update, options.delay);
+                  } else {
+                      offset = Date.now();
+                      setCookie("offset", offset);
+                      interval = setInterval(update, options.delay);
+                  }
+              }
+          }
+
+          function stop() {
+              if (interval) {
+                  clearInterval(interval);
+                  interval = null;
+              }
+          }
+
+          function reset() {
+              clock = 0;
+          }
+
+          function timeConv(millis) {
+              var minutes = Math.floor(millis / 60000);
+              var seconds = ((millis % 60000) / 1000);
+              var mills = pad(getDecimal(seconds), 3);
+              return [minutes, seconds.toFixed(0), mills];
+          }
+
+          function pad(n, width, z) {
+              z = z || '0';
+              n = n + '';
+              return n.length >= width ? n : new Array(width - n.length + 1).join(z) + n;
+          }
+
+          function update() {
+              clock += delta();
+              setCookie("clock", clock);
+              render(timeConv(clock));
+          }
+
+          function getDecimal(n) {
+              return ((n - Math.floor(n)).toFixed(3) * 1000);
+          }
+
+          function render(resp) {
+              htim = "";
+              if (resp[0] <= 0) {
+                  htim += "00";
+              } else {
+                  if (resp[0] >= 10) {
+                      htim += resp[0];
+                  } else {
+                      htim += "0" + resp[0].toString();
+                  }
+              }
+              htim += ":";
+              if (resp[1] <= 0) {
+                  htim += "00";
+              } else {
+                  if (resp[1] >= 10) {
+                      htim += resp[1];
+                  } else {
+                      htim += "0" + resp[1].toString();
+                  }
+              }
+              htim += ":";
+              htim += resp[2];
+              elem.innerHTML = htim;
+              if (starter) {
+                  $(".bot-bar").css("display", "flex");
+                  starter = false;
+              }
+
+
+          }
+
+          function delta() {
+              var now = Date.now(),
+                  d = now - offset;
+
+              offset = now;
+              return d;
+          }
+
+          // public API
+          this.start = start;
+          this.stop = stop;
+          this.reset = reset;
+      };
+
+      var urlParams = new URLSearchParams(window.location.search);
+      $(document).ready(function () {
+          var elem = document.getElementById("stopwatch");
+          var timer = new Stopwatch(elem, {
+              delay: 10
+          });
+          timer.start();
+      });
+
+      document.getElementById("tryagain").onclick = function execute() {
+        window.close()
+      }
+  </script>
+
+<!--End of Timer -->
+
+<!-- Main page -->
+
+    <div class="container-fluid" style="background-color: #FFF; height: 1250px;">
+
+    <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-3">
+        <img src="./main_files/pdlogo.png" class="img-responsive" width="95" height="70" style="margin-top: 10px;">
+      </div>
+      <div class="col-md-1" style="margin-top: 30px;font-weight: bold;">
+        <h5>Home</h5>
+      </div>
+      <div class="col-md-1" style="margin-top: 30px;font-weight: bold;">
+        <h5>Catalog</h5>
+      </div>
+      <div class="col-md-1" style="margin-top: 30px;font-weight: bold;">
+        <h5>Proxies</h5>
+      </div>
+      <div class="col-md-1" style="margin-top: 30px;font-weight: bold;">
+        <h5>Success</h5>
+      </div>
+      <div class="col-md-1"></div>
+      <div class="col-md-2">
+        <i style="font-size: 20px;margin-top: 35px;" class="fas fa-search"></i>
+        <i style="font-size:20px;margin-top: 35px;margin-left: 10px;" class="fas fa-shopping-bag"></i>
+      </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8" style="margin-left: 40px;margin-top: 20px;">
+        <img src="./main_files/botshowcase.png" class="img-responsive1">
+      </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8" style="margin-left: 40px;margin-top: 20px;">
+        <img src="./main_files/img1.png" class="img-responsive2">
+        <img src="./main_files/img2.png" class="img-responsive3">
+        <img src="./main_files/img3.png" class="img-responsive3">
+        <img src="./main_files/img4.png" class="img-responsive3">
+        <img src="./main_files/img5.png" class="img-responsive3">
+        <img src="./main_files/img6.png" class="img-responsive3">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-2"></div>
+      <div class="col-md-8" style="margin-left: 40px;margin-top: 20px;">
+        <h2>Project Destroyer - Monthly (Renewal License)</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-2"></div>
+      <div class="col-md-8" style="margin-left: 40px;">
+        <p style="font-size: 20px;">$200.00</p><p>
+      </p></div>
+    </div>
+    <div class="row">
+      <div class="col-md-2"></div>
+      <div class="col-md-8" style="margin-left: 40px;">
+        <p style="font-size: 16px;">Delivery Email <span style="color:red">*</span></p><p>
+      </p></div>
+    </div>
+    <form>
+    <div class="row">
+      <div class="col-md-2"></div>
+      <div class="col-md-8" style="margin-left: 40px;">
+        <input type="email" class="form-control" id="email" style="width:93.5%" required="required" placeholder="example@gmail.com">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-2"></div>
+      <div class="col-md-8" style="margin-left: 40px;margin-top: 10px;">
+        <p style="font-size: 16px;">Are You Human?</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-2"></div>
+      <div class="col-md-8" style="margin-left: 40px;">
+        <select class="form-control" id="Human_check" style="width:93.5%;cursor:pointer" required="">
+          <option>Select One</option>
+          <option>Yes</option>
+  
+        </select>
+      </div>
+    </div>
+      <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8" style="margin-left: 40px;margin-top: 10px;margin-bottom: 40px;">
+          <button class="btn" id="continue_button" style="background-color: #FF7F50;width:30%;position:absolute;color:white;height:50px;font-weight: bold;">ADD TO CART</button>
+        </div>
+      </div>
+    </form>
+  
+    <script>
+      var continueButton = document.getElementById("continue_button");
+      var Humancheck = document.getElementById("Human_check")
+      continueButton.onclick = function execute() {
+        if(Humancheck.value == "Yes"){
+          window.location.href = "/projectdestroyer/1";
+        }else{
+          return false;
+        }
+        return false;
+      }
+  
+    </script>
+  
+    </div>
+  
+
+
+
+<span style="border-radius: 3px !important; text-indent: 20px !important; width: auto !important; padding: 0px 4px 0px 0px !important; text-align: center !important; font: bold 11px / 20px &quot;Helvetica Neue&quot;, Helvetica, sans-serif !important; color: rgb(255, 255, 255) !important; background: url(&quot;data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMzBweCIgd2lkdGg9IjMwcHgiIHZpZXdCb3g9Ii0xIC0xIDMxIDMxIj48Zz48cGF0aCBkPSJNMjkuNDQ5LDE0LjY2MiBDMjkuNDQ5LDIyLjcyMiAyMi44NjgsMjkuMjU2IDE0Ljc1LDI5LjI1NiBDNi42MzIsMjkuMjU2IDAuMDUxLDIyLjcyMiAwLjA1MSwxNC42NjIgQzAuMDUxLDYuNjAxIDYuNjMyLDAuMDY3IDE0Ljc1LDAuMDY3IEMyMi44NjgsMC4wNjcgMjkuNDQ5LDYuNjAxIDI5LjQ0OSwxNC42NjIiIGZpbGw9IiNmZmYiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSIxIj48L3BhdGg+PHBhdGggZD0iTTE0LjczMywxLjY4NiBDNy41MTYsMS42ODYgMS42NjUsNy40OTUgMS42NjUsMTQuNjYyIEMxLjY2NSwyMC4xNTkgNS4xMDksMjQuODU0IDkuOTcsMjYuNzQ0IEM5Ljg1NiwyNS43MTggOS43NTMsMjQuMTQzIDEwLjAxNiwyMy4wMjIgQzEwLjI1MywyMi4wMSAxMS41NDgsMTYuNTcyIDExLjU0OCwxNi41NzIgQzExLjU0OCwxNi41NzIgMTEuMTU3LDE1Ljc5NSAxMS4xNTcsMTQuNjQ2IEMxMS4xNTcsMTIuODQyIDEyLjIxMSwxMS40OTUgMTMuNTIyLDExLjQ5NSBDMTQuNjM3LDExLjQ5NSAxNS4xNzUsMTIuMzI2IDE1LjE3NSwxMy4zMjMgQzE1LjE3NSwxNC40MzYgMTQuNDYyLDE2LjEgMTQuMDkzLDE3LjY0MyBDMTMuNzg1LDE4LjkzNSAxNC43NDUsMTkuOTg4IDE2LjAyOCwxOS45ODggQzE4LjM1MSwxOS45ODggMjAuMTM2LDE3LjU1NiAyMC4xMzYsMTQuMDQ2IEMyMC4xMzYsMTAuOTM5IDE3Ljg4OCw4Ljc2NyAxNC42NzgsOC43NjcgQzEwLjk1OSw4Ljc2NyA4Ljc3NywxMS41MzYgOC43NzcsMTQuMzk4IEM4Ljc3NywxNS41MTMgOS4yMSwxNi43MDkgOS43NDksMTcuMzU5IEM5Ljg1NiwxNy40ODggOS44NzIsMTcuNiA5Ljg0LDE3LjczMSBDOS43NDEsMTguMTQxIDkuNTIsMTkuMDIzIDkuNDc3LDE5LjIwMyBDOS40MiwxOS40NCA5LjI4OCwxOS40OTEgOS4wNCwxOS4zNzYgQzcuNDA4LDE4LjYyMiA2LjM4NywxNi4yNTIgNi4zODcsMTQuMzQ5IEM2LjM4NywxMC4yNTYgOS4zODMsNi40OTcgMTUuMDIyLDYuNDk3IEMxOS41NTUsNi40OTcgMjMuMDc4LDkuNzA1IDIzLjA3OCwxMy45OTEgQzIzLjA3OCwxOC40NjMgMjAuMjM5LDIyLjA2MiAxNi4yOTcsMjIuMDYyIEMxNC45NzMsMjIuMDYyIDEzLjcyOCwyMS4zNzkgMTMuMzAyLDIwLjU3MiBDMTMuMzAyLDIwLjU3MiAxMi42NDcsMjMuMDUgMTIuNDg4LDIzLjY1NyBDMTIuMTkzLDI0Ljc4NCAxMS4zOTYsMjYuMTk2IDEwLjg2MywyNy4wNTggQzEyLjA4NiwyNy40MzQgMTMuMzg2LDI3LjYzNyAxNC43MzMsMjcuNjM3IEMyMS45NSwyNy42MzcgMjcuODAxLDIxLjgyOCAyNy44MDEsMTQuNjYyIEMyNy44MDEsNy40OTUgMjEuOTUsMS42ODYgMTQuNzMzLDEuNjg2IiBmaWxsPSIjZTYwMDIzIj48L3BhdGg+PC9nPjwvc3ZnPg==&quot;) 3px 50% / 14px 14px no-repeat rgb(230, 0, 35) !important; position: absolute !important; opacity: 1 !important; z-index: 8675309 !important; display: none; cursor: pointer !important; border: none !important; -webkit-font-smoothing: antialiased !important; top: 143px; left: 302.5px;">Save</span><span style="border-radius: 12px; width: 24px !important; height: 24px !important; background: url(&quot;data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pjxzdmcgd2lkdGg9IjI0cHgiIGhlaWdodD0iMjRweCIgdmlld0JveD0iMCAwIDI0IDI0IiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjxkZWZzPjxtYXNrIGlkPSJtIj48cmVjdCBmaWxsPSIjZmZmIiB4PSIwIiB5PSIwIiB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHJ4PSI2IiByeT0iNiIvPjxyZWN0IGZpbGw9IiMwMDAiIHg9IjUiIHk9IjUiIHdpZHRoPSIxNCIgaGVpZ2h0PSIxNCIgcng9IjEiIHJ5PSIxIi8+PHJlY3QgZmlsbD0iIzAwMCIgeD0iMTAiIHk9IjAiIHdpZHRoPSI0IiBoZWlnaHQ9IjI0Ii8+PHJlY3QgZmlsbD0iIzAwMCIgeD0iMCIgeT0iMTAiIHdpZHRoPSIyNCIgaGVpZ2h0PSI0Ii8+PC9tYXNrPjwvZGVmcz48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIGZpbGw9IiNmZmYiIG1hc2s9InVybCgjbSkiLz48L3N2Zz4=&quot;) 50% 50% / 14px 14px no-repeat rgba(0, 0, 0, 0.4) !important; position: absolute !important; opacity: 1 !important; z-index: 8675309 !important; display: none; cursor: pointer !important; border: none !important; top: 143px; left: 1060.5px;"></span></body></html>
