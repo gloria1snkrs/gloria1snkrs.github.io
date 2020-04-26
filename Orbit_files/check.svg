@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 59.1 (86144) - https://sketch.com -->
+    <title>Group 2</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-2" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Orbit" transform="translate(-560.000000, -1174.000000)">
+            <g id="Group-4" transform="translate(0.000000, 1038.000000)">
+                <g id="Group" transform="translate(536.000000, 120.000000)">
+                    <g id="Group-2" transform="translate(24.000000, 16.000000)">
+                        <rect id="Rectangle" fill="#FFFFFF" x="0" y="0" width="48" height="48" rx="24"></rect>
+                        <path d="M15,14 C16.1045695,14 17,14.8954305 17,16 L17,25 L34,25 C35.1045695,25 36,25.8954305 36,27 C36,28.1045695 35.1045695,29 34,29 L15,29 L15,29 C13.8954305,29 13,28.1045695 13,27 L13,16 C13,14.8954305 13.8954305,14 15,14 Z" id="Combined-Shape" fill="#8E6DF3" transform="translate(24.500000, 21.500000) rotate(-45.000000) translate(-24.500000, -21.500000) "></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

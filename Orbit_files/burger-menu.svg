@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 59.1 (86144) - https://sketch.com -->
+    <title>burger-menu</title>
+    <desc>Created with Sketch.</desc>
+    <g id="burger-menu" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group">
+            <rect id="Rectangle" fill-rule="nonzero" x="0" y="0" width="24" height="24"></rect>
+            <path d="M19.5,17 C20.3284271,17 21,17.6715729 21,18.5 C21,19.3284271 20.3284271,20 19.5,20 L4.5,20 C3.67157288,20 3,19.3284271 3,18.5 C3,17.6715729 3.67157288,17 4.5,17 L19.5,17 Z M19.5,10.5 C20.3284271,10.5 21,11.1715729 21,12 C21,12.8284271 20.3284271,13.5 19.5,13.5 L4.5,13.5 C3.67157288,13.5 3,12.8284271 3,12 C3,11.1715729 3.67157288,10.5 4.5,10.5 L19.5,10.5 Z M19.5,4 C20.3284271,4 21,4.67157288 21,5.5 C21,6.32842712 20.3284271,7 19.5,7 L4.5,7 C3.67157288,7 3,6.32842712 3,5.5 C3,4.67157288 3.67157288,4 4.5,4 L19.5,4 Z" id="Combined-Shape" fill="#FFFFFF"></path>
+        </g>
+    </g>
+</svg>
