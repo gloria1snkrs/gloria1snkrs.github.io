@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<!-- saved from url=(0050)https://restocksim.com/tohru?password=ifZsEB92XUIK -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      
+      <title>Tohru</title>
+      <!--<base href="/">-->
+      <!--<base href=".">--><base href=".">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="icon" type="image/x-icon" href="https://tohru.io/favicon.ico">
+      <link href="./test_page_tohru_files/icon" rel="stylesheet">
+      <link href="./test_page_tohru_files/css" rel="stylesheet">
+      <link href="./test_page_tohru_files/css(1)" rel="stylesheet">
+      <script src="./test_page_tohru_files/saved_resource"></script><script data-dapp-detection="">
+(function() {
+  let alreadyInsertedMetaTag = false
+
+  function __insertDappDetected() {
+    if (!alreadyInsertedMetaTag) {
+      const meta = document.createElement('meta')
+      meta.name = 'dapp-detected'
+      document.head.appendChild(meta)
+      alreadyInsertedMetaTag = true
+    }
+  }
+
+  if (window.hasOwnProperty('web3')) {
+    // Note a closure can't be used for this var because some sites like
+    // www.wnyc.org do a second script execution via eval for some reason.
+    window.__disableDappDetectionInsertion = true
+    // Likely oldWeb3 is undefined and it has a property only because
+    // we defined it. Some sites like wnyc.org are evaling all scripts
+    // that exist again, so this is protection against multiple calls.
+    if (window.web3 === undefined) {
+      return
+    }
+    __insertDappDetected()
+  } else {
+    var oldWeb3 = window.web3
+    Object.defineProperty(window, 'web3', {
+      configurable: true,
+      set: function (val) {
+        if (!window.__disableDappDetectionInsertion)
+          __insertDappDetected()
+        oldWeb3 = val
+      },
+      get: function () {
+        if (!window.__disableDappDetectionInsertion)
+          __insertDappDetected()
+        return oldWeb3
+      }
+    })
+  }
+})()</script>
+      <link rel="stylesheet" href="./test_page_tohru_files/css(2)">
+      <script src="./test_page_tohru_files/saved_resource(1)"></script>
+      <link rel="stylesheet" href="./test_page_tohru_files/styles.abceb8d93109e3b29ceb.css">
+      <link href="./test_page_tohru_files/css2" rel="stylesheet">
+      <script src="./test_page_tohru_files/jquery.min.js"></script>
+      
+      <style></style>
+      <style>.leftNav[_ngcontent-lxx-c1]{width:280px;background-color:#292b37;height:100vh;position:fixed;z-index:1;top:0;left:0;overflow-x:hidden}.myAvatar[_ngcontent-lxx-c1]{border-radius:12px;margin-top:11px;margin-left:11px}.discriminator[_ngcontent-lxx-c1]{position:absolute;margin-top:10px;margin-left:7px;font-family: 'Montserrat', sans-serif;;font-weight:800;font-size:18px;line-height:23px;color:#fff}.signOut[_ngcontent-lxx-c1]{position:absolute;margin-top:35px;margin-left:7px;font-family: 'Montserrat', sans-serif;;font-weight:800;font-size:12px;line-height:15px;color:#e8555f;cursor:pointer}.linkText[_ngcontent-lxx-c1]{font-family: 'Montserrat', sans-serif;;font-weight:800;font-size:18px;line-height:23px;color:rgb(255,255,255,.5);outline:0!important}.active[_ngcontent-lxx-c1]{color:#fff}.linkBox[_ngcontent-lxx-c1]{display:none;position:absolute;width:260px;height:40px;margin-left:8px;border-radius:10px;background:linear-gradient(180deg,#ff5d67 0,#db4f58 100%);box-shadow:0 5px 10px rgba(0,0,0,.2)}.activeBox[_ngcontent-lxx-c1]{margin-top:8px;display:block}.container[_ngcontent-lxx-c1]{background-color:#eaeaf1;height:100vh}.mainContent[_ngcontent-lxx-c1]{flex:1;width:calc(100% - 280px);margin-left:280px}@media screen and (max-width:600px){.mainContent[_ngcontent-lxx-c1]{margin-left:0;width:100%}}</style>
+      <style>.mat-drawer-container{position:relative;z-index:1;box-sizing:border-box;-webkit-overflow-scrolling:touch;display:block;overflow:hidden}.mat-drawer-container[fullscreen]{top:0;left:0;right:0;bottom:0;position:absolute}.mat-drawer-container[fullscreen].mat-drawer-opened{overflow:hidden}.mat-drawer-container.mat-drawer-container-explicit-backdrop .mat-drawer-side{z-index:3}.mat-drawer-container.ng-animate-disabled .mat-drawer-backdrop,.mat-drawer-container.ng-animate-disabled .mat-drawer-content,.ng-animate-disabled .mat-drawer-container .mat-drawer-backdrop,.ng-animate-disabled .mat-drawer-container .mat-drawer-content{transition:none}.mat-drawer-backdrop{top:0;left:0;right:0;bottom:0;position:absolute;display:block;z-index:3;visibility:hidden}.mat-drawer-backdrop.mat-drawer-shown{visibility:visible}.mat-drawer-transition .mat-drawer-backdrop{transition-duration:.4s;transition-timing-function:cubic-bezier(.25,.8,.25,1);transition-property:background-color,visibility}@media (-ms-high-contrast:active){.mat-drawer-backdrop{opacity:.5}}.mat-drawer-content{position:relative;z-index:1;display:block;height:100%;overflow:auto}.mat-drawer-transition .mat-drawer-content{transition-duration:.4s;transition-timing-function:cubic-bezier(.25,.8,.25,1);transition-property:transform,margin-left,margin-right}.mat-drawer{position:relative;z-index:4;display:block;position:absolute;top:0;bottom:0;z-index:3;outline:0;box-sizing:border-box;overflow-y:auto;transform:translate3d(-100%,0,0)}@media (-ms-high-contrast:active){.mat-drawer,[dir=rtl] .mat-drawer.mat-drawer-end{border-right:solid 1px currentColor}}@media (-ms-high-contrast:active){.mat-drawer.mat-drawer-end,[dir=rtl] .mat-drawer{border-left:solid 1px currentColor;border-right:none}}.mat-drawer.mat-drawer-side{z-index:2}.mat-drawer.mat-drawer-end{right:0;transform:translate3d(100%,0,0)}[dir=rtl] .mat-drawer{transform:translate3d(100%,0,0)}[dir=rtl] .mat-drawer.mat-drawer-end{left:0;right:auto;transform:translate3d(-100%,0,0)}.mat-drawer-inner-container{width:100%;height:100%;overflow:auto;-webkit-overflow-scrolling:touch}.mat-sidenav-fixed{position:fixed}</style>
+      <style type="text/css">
+         @media screen and (min-width: 600px), screen and (min-width: 960px), screen and (min-width: 1280px), screen and (min-width: 1920px), screen and (min-width: 1920px) and (max-width: 4999.99px), screen and (max-width: 1919.99px), screen and (min-width: 1280px) and (max-width: 1919.99px), screen and (max-width: 1279.99px), screen and (min-width: 960px) and (max-width: 1279.99px), screen and (max-width: 959.99px), screen and (min-width: 600px) and (max-width: 959.99px), screen and (max-width: 599.99px), screen and (min-width: 0px) and (max-width: 599.99px), print {.fx-query-test{ }}
+      </style>
+      <style>.mat-subheader{display:flex;box-sizing:border-box;padding:16px;align-items:center}.mat-list-base .mat-subheader{margin:0}.mat-list-base{padding-top:8px;display:block;-webkit-tap-highlight-color:transparent}.mat-list-base .mat-subheader{height:48px;line-height:16px}.mat-list-base .mat-subheader:first-child{margin-top:-8px}.mat-list-base .mat-list-item,.mat-list-base .mat-list-option{display:block;height:48px;-webkit-tap-highlight-color:transparent;width:100%;padding:0}.mat-list-base .mat-list-item .mat-list-item-content,.mat-list-base .mat-list-option .mat-list-item-content{display:flex;flex-direction:row;align-items:center;box-sizing:border-box;padding:0 16px;position:relative;height:inherit}.mat-list-base .mat-list-item .mat-list-item-content-reverse,.mat-list-base .mat-list-option .mat-list-item-content-reverse{display:flex;align-items:center;padding:0 16px;flex-direction:row-reverse;justify-content:space-around}.mat-list-base .mat-list-item .mat-list-item-ripple,.mat-list-base .mat-list-option .mat-list-item-ripple{top:0;left:0;right:0;bottom:0;position:absolute;pointer-events:none}.mat-list-base .mat-list-item.mat-list-item-with-avatar,.mat-list-base .mat-list-option.mat-list-item-with-avatar{height:56px}.mat-list-base .mat-list-item.mat-2-line,.mat-list-base .mat-list-option.mat-2-line{height:72px}.mat-list-base .mat-list-item.mat-3-line,.mat-list-base .mat-list-option.mat-3-line{height:88px}.mat-list-base .mat-list-item.mat-multi-line,.mat-list-base .mat-list-option.mat-multi-line{height:auto}.mat-list-base .mat-list-item.mat-multi-line .mat-list-item-content,.mat-list-base .mat-list-option.mat-multi-line .mat-list-item-content{padding-top:16px;padding-bottom:16px}.mat-list-base .mat-list-item .mat-list-text,.mat-list-base .mat-list-option .mat-list-text{display:flex;flex-direction:column;width:100%;box-sizing:border-box;overflow:hidden;padding:0}.mat-list-base .mat-list-item .mat-list-text>*,.mat-list-base .mat-list-option .mat-list-text>*{margin:0;padding:0;font-weight:400;font-size:inherit}.mat-list-base .mat-list-item .mat-list-text:empty,.mat-list-base .mat-list-option .mat-list-text:empty{display:none}.mat-list-base .mat-list-item.mat-list-item-with-avatar .mat-list-item-content .mat-list-text,.mat-list-base .mat-list-item.mat-list-option .mat-list-item-content .mat-list-text,.mat-list-base .mat-list-option.mat-list-item-with-avatar .mat-list-item-content .mat-list-text,.mat-list-base .mat-list-option.mat-list-option .mat-list-item-content .mat-list-text{padding-right:0;padding-left:16px}[dir=rtl] .mat-list-base .mat-list-item.mat-list-item-with-avatar .mat-list-item-content .mat-list-text,[dir=rtl] .mat-list-base .mat-list-item.mat-list-option .mat-list-item-content .mat-list-text,[dir=rtl] .mat-list-base .mat-list-option.mat-list-item-with-avatar .mat-list-item-content .mat-list-text,[dir=rtl] .mat-list-base .mat-list-option.mat-list-option .mat-list-item-content .mat-list-text{padding-right:16px;padding-left:0}.mat-list-base .mat-list-item.mat-list-item-with-avatar .mat-list-item-content-reverse .mat-list-text,.mat-list-base .mat-list-item.mat-list-option .mat-list-item-content-reverse .mat-list-text,.mat-list-base .mat-list-option.mat-list-item-with-avatar .mat-list-item-content-reverse .mat-list-text,.mat-list-base .mat-list-option.mat-list-option .mat-list-item-content-reverse .mat-list-text{padding-left:0;padding-right:16px}[dir=rtl] .mat-list-base .mat-list-item.mat-list-item-with-avatar .mat-list-item-content-reverse .mat-list-text,[dir=rtl] .mat-list-base .mat-list-item.mat-list-option .mat-list-item-content-reverse .mat-list-text,[dir=rtl] .mat-list-base .mat-list-option.mat-list-item-with-avatar .mat-list-item-content-reverse .mat-list-text,[dir=rtl] .mat-list-base .mat-list-option.mat-list-option .mat-list-item-content-reverse .mat-list-text{padding-right:0;padding-left:16px}.mat-list-base .mat-list-item.mat-list-item-with-avatar.mat-list-option .mat-list-item-content .mat-list-text,.mat-list-base .mat-list-item.mat-list-item-with-avatar.mat-list-option .mat-list-item-content-reverse .mat-list-text,.mat-list-base .mat-list-option.mat-list-item-with-avatar.mat-list-option .mat-list-item-content .mat-list-text,.mat-list-base .mat-list-option.mat-list-item-with-avatar.mat-list-option .mat-list-item-content-reverse .mat-list-text{padding-right:16px;padding-left:16px}.mat-list-base .mat-list-item .mat-list-avatar,.mat-list-base .mat-list-option .mat-list-avatar{flex-shrink:0;width:40px;height:40px;border-radius:50%;object-fit:cover}.mat-list-base .mat-list-item .mat-list-avatar~.mat-divider-inset,.mat-list-base .mat-list-option .mat-list-avatar~.mat-divider-inset{margin-left:72px;width:calc(100% - 72px)}[dir=rtl] .mat-list-base .mat-list-item .mat-list-avatar~.mat-divider-inset,[dir=rtl] .mat-list-base .mat-list-option .mat-list-avatar~.mat-divider-inset{margin-left:auto;margin-right:72px}.mat-list-base .mat-list-item .mat-list-icon,.mat-list-base .mat-list-option .mat-list-icon{flex-shrink:0;width:24px;height:24px;font-size:24px;box-sizing:content-box;border-radius:50%;padding:4px}.mat-list-base .mat-list-item .mat-list-icon~.mat-divider-inset,.mat-list-base .mat-list-option .mat-list-icon~.mat-divider-inset{margin-left:64px;width:calc(100% - 64px)}[dir=rtl] .mat-list-base .mat-list-item .mat-list-icon~.mat-divider-inset,[dir=rtl] .mat-list-base .mat-list-option .mat-list-icon~.mat-divider-inset{margin-left:auto;margin-right:64px}.mat-list-base .mat-list-item .mat-divider,.mat-list-base .mat-list-option .mat-divider{position:absolute;bottom:0;left:0;width:100%;margin:0}[dir=rtl] .mat-list-base .mat-list-item .mat-divider,[dir=rtl] .mat-list-base .mat-list-option .mat-divider{margin-left:auto;margin-right:0}.mat-list-base .mat-list-item .mat-divider.mat-divider-inset,.mat-list-base .mat-list-option .mat-divider.mat-divider-inset{position:absolute}.mat-list-base[dense]{padding-top:4px;display:block}.mat-list-base[dense] .mat-subheader{height:40px;line-height:8px}.mat-list-base[dense] .mat-subheader:first-child{margin-top:-4px}.mat-list-base[dense] .mat-list-item,.mat-list-base[dense] .mat-list-option{display:block;height:40px;-webkit-tap-highlight-color:transparent;width:100%;padding:0}.mat-list-base[dense] .mat-list-item .mat-list-item-content,.mat-list-base[dense] .mat-list-option .mat-list-item-content{display:flex;flex-direction:row;align-items:center;box-sizing:border-box;padding:0 16px;position:relative;height:inherit}.mat-list-base[dense] .mat-list-item .mat-list-item-content-reverse,.mat-list-base[dense] .mat-list-option .mat-list-item-content-reverse{display:flex;align-items:center;padding:0 16px;flex-direction:row-reverse;justify-content:space-around}.mat-list-base[dense] .mat-list-item .mat-list-item-ripple,.mat-list-base[dense] .mat-list-option .mat-list-item-ripple{top:0;left:0;right:0;bottom:0;position:absolute;pointer-events:none}.mat-list-base[dense] .mat-list-item.mat-list-item-with-avatar,.mat-list-base[dense] .mat-list-option.mat-list-item-with-avatar{height:48px}.mat-list-base[dense] .mat-list-item.mat-2-line,.mat-list-base[dense] .mat-list-option.mat-2-line{height:60px}.mat-list-base[dense] .mat-list-item.mat-3-line,.mat-list-base[dense] .mat-list-option.mat-3-line{height:76px}.mat-list-base[dense] .mat-list-item.mat-multi-line,.mat-list-base[dense] .mat-list-option.mat-multi-line{height:auto}.mat-list-base[dense] .mat-list-item.mat-multi-line .mat-list-item-content,.mat-list-base[dense] .mat-list-option.mat-multi-line .mat-list-item-content{padding-top:16px;padding-bottom:16px}.mat-list-base[dense] .mat-list-item .mat-list-text,.mat-list-base[dense] .mat-list-option .mat-list-text{display:flex;flex-direction:column;width:100%;box-sizing:border-box;overflow:hidden;padding:0}.mat-list-base[dense] .mat-list-item .mat-list-text>*,.mat-list-base[dense] .mat-list-option .mat-list-text>*{margin:0;padding:0;font-weight:400;font-size:inherit}.mat-list-base[dense] .mat-list-item .mat-list-text:empty,.mat-list-base[dense] .mat-list-option .mat-list-text:empty{display:none}.mat-list-base[dense] .mat-list-item.mat-list-item-with-avatar .mat-list-item-content .mat-list-text,.mat-list-base[dense] .mat-list-item.mat-list-option .mat-list-item-content .mat-list-text,.mat-list-base[dense] .mat-list-option.mat-list-item-with-avatar .mat-list-item-content .mat-list-text,.mat-list-base[dense] .mat-list-option.mat-list-option .mat-list-item-content .mat-list-text{padding-right:0;padding-left:16px}[dir=rtl] .mat-list-base[dense] .mat-list-item.mat-list-item-with-avatar .mat-list-item-content .mat-list-text,[dir=rtl] .mat-list-base[dense] .mat-list-item.mat-list-option .mat-list-item-content .mat-list-text,[dir=rtl] .mat-list-base[dense] .mat-list-option.mat-list-item-with-avatar .mat-list-item-content .mat-list-text,[dir=rtl] .mat-list-base[dense] .mat-list-option.mat-list-option .mat-list-item-content .mat-list-text{padding-right:16px;padding-left:0}.mat-list-base[dense] .mat-list-item.mat-list-item-with-avatar .mat-list-item-content-reverse .mat-list-text,.mat-list-base[dense] .mat-list-item.mat-list-option .mat-list-item-content-reverse .mat-list-text,.mat-list-base[dense] .mat-list-option.mat-list-item-with-avatar .mat-list-item-content-reverse .mat-list-text,.mat-list-base[dense] .mat-list-option.mat-list-option .mat-list-item-content-reverse .mat-list-text{padding-left:0;padding-right:16px}[dir=rtl] .mat-list-base[dense] .mat-list-item.mat-list-item-with-avatar .mat-list-item-content-reverse .mat-list-text,[dir=rtl] .mat-list-base[dense] .mat-list-item.mat-list-option .mat-list-item-content-reverse .mat-list-text,[dir=rtl] .mat-list-base[dense] .mat-list-option.mat-list-item-with-avatar .mat-list-item-content-reverse .mat-list-text,[dir=rtl] .mat-list-base[dense] .mat-list-option.mat-list-option .mat-list-item-content-reverse .mat-list-text{padding-right:0;padding-left:16px}.mat-list-base[dense] .mat-list-item.mat-list-item-with-avatar.mat-list-option .mat-list-item-content .mat-list-text,.mat-list-base[dense] .mat-list-item.mat-list-item-with-avatar.mat-list-option .mat-list-item-content-reverse .mat-list-text,.mat-list-base[dense] .mat-list-option.mat-list-item-with-avatar.mat-list-option .mat-list-item-content .mat-list-text,.mat-list-base[dense] .mat-list-option.mat-list-item-with-avatar.mat-list-option .mat-list-item-content-reverse .mat-list-text{padding-right:16px;padding-left:16px}.mat-list-base[dense] .mat-list-item .mat-list-avatar,.mat-list-base[dense] .mat-list-option .mat-list-avatar{flex-shrink:0;width:36px;height:36px;border-radius:50%;object-fit:cover}.mat-list-base[dense] .mat-list-item .mat-list-avatar~.mat-divider-inset,.mat-list-base[dense] .mat-list-option .mat-list-avatar~.mat-divider-inset{margin-left:68px;width:calc(100% - 68px)}[dir=rtl] .mat-list-base[dense] .mat-list-item .mat-list-avatar~.mat-divider-inset,[dir=rtl] .mat-list-base[dense] .mat-list-option .mat-list-avatar~.mat-divider-inset{margin-left:auto;margin-right:68px}.mat-list-base[dense] .mat-list-item .mat-list-icon,.mat-list-base[dense] .mat-list-option .mat-list-icon{flex-shrink:0;width:20px;height:20px;font-size:20px;box-sizing:content-box;border-radius:50%;padding:4px}.mat-list-base[dense] .mat-list-item .mat-list-icon~.mat-divider-inset,.mat-list-base[dense] .mat-list-option .mat-list-icon~.mat-divider-inset{margin-left:60px;width:calc(100% - 60px)}[dir=rtl] .mat-list-base[dense] .mat-list-item .mat-list-icon~.mat-divider-inset,[dir=rtl] .mat-list-base[dense] .mat-list-option .mat-list-icon~.mat-divider-inset{margin-left:auto;margin-right:60px}.mat-list-base[dense] .mat-list-item .mat-divider,.mat-list-base[dense] .mat-list-option .mat-divider{position:absolute;bottom:0;left:0;width:100%;margin:0}[dir=rtl] .mat-list-base[dense] .mat-list-item .mat-divider,[dir=rtl] .mat-list-base[dense] .mat-list-option .mat-divider{margin-left:auto;margin-right:0}.mat-list-base[dense] .mat-list-item .mat-divider.mat-divider-inset,.mat-list-base[dense] .mat-list-option .mat-divider.mat-divider-inset{position:absolute}.mat-nav-list a{text-decoration:none;color:inherit}.mat-nav-list .mat-list-item{cursor:pointer;outline:0}mat-action-list button{background:0 0;color:inherit;border:none;font:inherit;outline:inherit;-webkit-tap-highlight-color:transparent;text-align:left}[dir=rtl] mat-action-list button{text-align:right}mat-action-list button::-moz-focus-inner{border:0}mat-action-list .mat-list-item{cursor:pointer;outline:inherit}.mat-list-option:not(.mat-list-item-disabled){cursor:pointer;outline:0}@media (-ms-high-contrast:active){.mat-selection-list:focus{outline-style:dotted}.mat-list-option:focus,.mat-list-option:hover,.mat-nav-list .mat-list-item:focus,.mat-nav-list .mat-list-item:hover,mat-action-list .mat-list-item:focus,mat-action-list .mat-list-item:hover{outline:dotted 1px}}@media (hover:none){.mat-action-list .mat-list-item:not(.mat-list-item-disabled):hover,.mat-list-option:not(.mat-list-item-disabled):hover,.mat-nav-list .mat-list-item:not(.mat-list-item-disabled):hover{background:0 0}}</style>
+      <style>.mat-button .mat-button-focus-overlay,.mat-icon-button .mat-button-focus-overlay{opacity:0}.mat-button:hover .mat-button-focus-overlay,.mat-stroked-button:hover .mat-button-focus-overlay{opacity:.04}@media (hover:none){.mat-button:hover .mat-button-focus-overlay,.mat-stroked-button:hover .mat-button-focus-overlay{opacity:0}}.mat-button,.mat-flat-button,.mat-icon-button,.mat-stroked-button{box-sizing:border-box;position:relative;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;cursor:pointer;outline:0;border:none;-webkit-tap-highlight-color:transparent;display:inline-block;white-space:nowrap;text-decoration:none;vertical-align:baseline;text-align:center;margin:0;min-width:64px;line-height:36px;padding:0 16px;border-radius:4px;overflow:visible}.mat-button::-moz-focus-inner,.mat-flat-button::-moz-focus-inner,.mat-icon-button::-moz-focus-inner,.mat-stroked-button::-moz-focus-inner{border:0}.mat-button[disabled],.mat-flat-button[disabled],.mat-icon-button[disabled],.mat-stroked-button[disabled]{cursor:default}.mat-button.cdk-keyboard-focused .mat-button-focus-overlay,.mat-button.cdk-program-focused .mat-button-focus-overlay,.mat-flat-button.cdk-keyboard-focused .mat-button-focus-overlay,.mat-flat-button.cdk-program-focused .mat-button-focus-overlay,.mat-icon-button.cdk-keyboard-focused .mat-button-focus-overlay,.mat-icon-button.cdk-program-focused .mat-button-focus-overlay,.mat-stroked-button.cdk-keyboard-focused .mat-button-focus-overlay,.mat-stroked-button.cdk-program-focused .mat-button-focus-overlay{opacity:.12}.mat-button::-moz-focus-inner,.mat-flat-button::-moz-focus-inner,.mat-icon-button::-moz-focus-inner,.mat-stroked-button::-moz-focus-inner{border:0}.mat-raised-button{box-sizing:border-box;position:relative;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;cursor:pointer;outline:0;border:none;-webkit-tap-highlight-color:transparent;display:inline-block;white-space:nowrap;text-decoration:none;vertical-align:baseline;text-align:center;margin:0;min-width:64px;line-height:36px;padding:0 16px;border-radius:4px;overflow:visible;transform:translate3d(0,0,0);transition:background .4s cubic-bezier(.25,.8,.25,1),box-shadow 280ms cubic-bezier(.4,0,.2,1)}.mat-raised-button::-moz-focus-inner{border:0}.mat-raised-button[disabled]{cursor:default}.mat-raised-button.cdk-keyboard-focused .mat-button-focus-overlay,.mat-raised-button.cdk-program-focused .mat-button-focus-overlay{opacity:.12}.mat-raised-button::-moz-focus-inner{border:0}._mat-animation-noopable.mat-raised-button{transition:none;animation:none}.mat-stroked-button{border:1px solid currentColor;padding:0 15px;line-height:34px}.mat-stroked-button .mat-button-focus-overlay,.mat-stroked-button .mat-button-ripple.mat-ripple{top:-1px;left:-1px;right:-1px;bottom:-1px}.mat-fab{box-sizing:border-box;position:relative;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;cursor:pointer;outline:0;border:none;-webkit-tap-highlight-color:transparent;display:inline-block;white-space:nowrap;text-decoration:none;vertical-align:baseline;text-align:center;margin:0;min-width:64px;line-height:36px;padding:0 16px;border-radius:4px;overflow:visible;transform:translate3d(0,0,0);transition:background .4s cubic-bezier(.25,.8,.25,1),box-shadow 280ms cubic-bezier(.4,0,.2,1);min-width:0;border-radius:50%;width:56px;height:56px;padding:0;flex-shrink:0}.mat-fab::-moz-focus-inner{border:0}.mat-fab[disabled]{cursor:default}.mat-fab.cdk-keyboard-focused .mat-button-focus-overlay,.mat-fab.cdk-program-focused .mat-button-focus-overlay{opacity:.12}.mat-fab::-moz-focus-inner{border:0}._mat-animation-noopable.mat-fab{transition:none;animation:none}.mat-fab .mat-button-wrapper{padding:16px 0;display:inline-block;line-height:24px}.mat-mini-fab{box-sizing:border-box;position:relative;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;cursor:pointer;outline:0;border:none;-webkit-tap-highlight-color:transparent;display:inline-block;white-space:nowrap;text-decoration:none;vertical-align:baseline;text-align:center;margin:0;min-width:64px;line-height:36px;padding:0 16px;border-radius:4px;overflow:visible;transform:translate3d(0,0,0);transition:background .4s cubic-bezier(.25,.8,.25,1),box-shadow 280ms cubic-bezier(.4,0,.2,1);min-width:0;border-radius:50%;width:40px;height:40px;padding:0;flex-shrink:0}.mat-mini-fab::-moz-focus-inner{border:0}.mat-mini-fab[disabled]{cursor:default}.mat-mini-fab.cdk-keyboard-focused .mat-button-focus-overlay,.mat-mini-fab.cdk-program-focused .mat-button-focus-overlay{opacity:.12}.mat-mini-fab::-moz-focus-inner{border:0}._mat-animation-noopable.mat-mini-fab{transition:none;animation:none}.mat-mini-fab .mat-button-wrapper{padding:8px 0;display:inline-block;line-height:24px}.mat-icon-button{padding:0;min-width:0;width:40px;height:40px;flex-shrink:0;line-height:40px;border-radius:50%}.mat-icon-button .mat-icon,.mat-icon-button i{line-height:24px}.mat-button-focus-overlay,.mat-button-ripple.mat-ripple{top:0;left:0;right:0;bottom:0;position:absolute;pointer-events:none;border-radius:inherit}.mat-button-ripple.mat-ripple:not(:empty){transform:translateZ(0)}.mat-button-focus-overlay{opacity:0;transition:opacity .2s cubic-bezier(.35,0,.25,1),background-color .2s cubic-bezier(.35,0,.25,1)}._mat-animation-noopable .mat-button-focus-overlay{transition:none}@media (-ms-high-contrast:active){.mat-button-focus-overlay{background-color:#fff}}@media (-ms-high-contrast:black-on-white){.mat-button-focus-overlay{background-color:#000}}.mat-button-ripple-round{border-radius:50%;z-index:1}.mat-button .mat-button-wrapper>*,.mat-fab .mat-button-wrapper>*,.mat-flat-button .mat-button-wrapper>*,.mat-icon-button .mat-button-wrapper>*,.mat-mini-fab .mat-button-wrapper>*,.mat-raised-button .mat-button-wrapper>*,.mat-stroked-button .mat-button-wrapper>*{vertical-align:middle}.mat-form-field:not(.mat-form-field-appearance-legacy) .mat-form-field-prefix .mat-icon-button,.mat-form-field:not(.mat-form-field-appearance-legacy) .mat-form-field-suffix .mat-icon-button{display:block;font-size:inherit;width:2.5em;height:2.5em}@media (-ms-high-contrast:active){.mat-button,.mat-fab,.mat-flat-button,.mat-icon-button,.mat-mini-fab,.mat-raised-button{outline:solid 1px}}</style>
+      <style>.mat-icon{background-repeat:no-repeat;display:inline-block;fill:currentColor;height:24px;width:24px}.mat-icon.mat-icon-inline{font-size:inherit;height:inherit;line-height:inherit;width:inherit}[dir=rtl] .mat-icon-rtl-mirror{transform:scale(-1,1)}.mat-form-field:not(.mat-form-field-appearance-legacy) .mat-form-field-prefix .mat-icon,.mat-form-field:not(.mat-form-field-appearance-legacy) .mat-form-field-suffix .mat-icon{display:block}.mat-form-field:not(.mat-form-field-appearance-legacy) .mat-form-field-prefix .mat-icon-button .mat-icon,.mat-form-field:not(.mat-form-field-appearance-legacy) .mat-form-field-suffix .mat-icon-button .mat-icon{margin:auto}</style>
+      <style>input[_ngcontent-lxx-c6]{outline:0}.topBar[_ngcontent-lxx-c6]{position:relative;width:100%;height:80px;background-color:#fff;z-index:1;box-shadow:0 5px 15px rgba(0,0,0,.2)}.headerText[_ngcontent-lxx-c6]{font-family: 'Montserrat', sans-serif;;font-size:32px;font-weight:900;line-height:40px;color:#323548}.mainContent[_ngcontent-lxx-c6]{width:calc(100% - 40px);height:calc(100% - 120px);z-index:-1;padding:20px}.subHeader[_ngcontent-lxx-c6]{font-family: 'Montserrat', sans-serif;;font-weight:900;font-size:20px;line-height:25px;color:#323548}.topLicense[_ngcontent-lxx-c6]{width:300px;height:170px;background:radial-gradient(170px at 50% 26.04%,#ff747d 0,#df4a54 100%);border-top-left-radius:15px;border-top-right-radius:15px;box-shadow:0 20px 30px rgba(0,0,0,.15)}.topLicenseActual[_ngcontent-lxx-c6]{width:300px;height:170px;background-color:#df4a54;border-top-left-radius:15px;border-top-right-radius:15px;box-shadow:0 20px 30px rgba(0,0,0,.15);background-image:url(licenseBackground.f7b95e255ad400fa455e.svg)}.bottomLicense[_ngcontent-lxx-c6]{width:300px;height:60px;background-color:#fff;border-bottom-left-radius:15px;border-bottom-right-radius:15px;cursor:pointer;box-shadow:0 20px 30px rgba(0,0,0,.15)}.bottomLicenseOwned[_ngcontent-lxx-c6]{width:300px;height:44px;background-color:#fff;border-bottom-left-radius:15px;border-bottom-right-radius:15px;box-shadow:0 20px 30px rgba(0,0,0,.15);text-align:left}.licenseExpire[_ngcontent-lxx-c6]{font-family: 'Montserrat', sans-serif;;font-style:normal;font-weight:800;font-size:14px;line-height:18px;color:#323548;top:2px;left:14px;position:relative}.licenseExpireButton[_ngcontent-lxx-c6]{cursor:pointer}.purchaseText[_ngcontent-lxx-c6]{font-family: 'Montserrat', sans-serif;;font-weight:800;font-size:22px;line-height:28px;text-align:center;color:#e8555f}.cardTitle[_ngcontent-lxx-c6]{font-family:Ramabhadra;font-size:24px;letter-spacing:3.9px;color:#fff;line-height:28px}.cardSubtitle[_ngcontent-lxx-c6]{font-family: 'Montserrat', sans-serif;;font-weight:900;font-size:14px;letter-spacing:.777778px;text-transform:uppercase;color:#fff}.priceBox[_ngcontent-lxx-c6]{position:relative;margin-left:210px;top:10px;background:#fff;border-radius:10px;width:81px;height:33px;box-shadow:0 2px 4px rgba(0,0,0,.1)}.priceText[_ngcontent-lxx-c6]{position:relative;top:5px;font-family: 'Montserrat', sans-serif;;font-weight:800;font-size:18px;line-height:23px;color:#e3505a}.inputLabel[_ngcontent-lxx-c6]{font-family: 'Montserrat', sans-serif;;font-style:normal;font-weight:800;font-size:12px;line-height:15px;color:#323548;mix-blend-mode:normal;opacity:.8}.oosLabel[_ngcontent-lxx-c6]{font-family: 'Montserrat', sans-serif;;font-style:normal;font-weight:800;font-size:20px;line-height:15px;color:#323548;mix-blend-mode:normal;opacity:.8}.inputText[_ngcontent-lxx-c6]{background:#fff;box-shadow:0 3px 6px rgba(0,0,0,.1);border-radius:8px;border:none;font-family: 'Montserrat', sans-serif;;font-style:normal;font-weight:800;font-size:17px;line-height:21px;color:#323548;width:calc(100% - 7px);height:35px;padding-left:7px}.inputDiv[_ngcontent-lxx-c6]{margin-top:6px;position:relative}.StripeElement[_ngcontent-lxx-c6]{background:#fff;box-shadow:0 3px 6px rgba(0,0,0,.1);border-radius:8px;border:none;padding:10px}.StripeElement--invalid[_ngcontent-lxx-c6]{border-color:#fa755a}.StripeElement--webkit-autofill[_ngcontent-lxx-c6]{background-color:#fefde5!important}.payButton[_ngcontent-lxx-c6]{width:100%;height:40px;background:linear-gradient(180deg,#ff5d67 0,#db4f58 100%);box-shadow:0 3px 6px rgba(0,0,0,.3);border-radius:10px;font-family: 'Montserrat', sans-serif;;font-style:normal;font-weight:800;font-size:18px;line-height:23px;color:#fff;padding-top:8px}.licenseNumber[_ngcontent-lxx-c6]{font-family: 'Montserrat', sans-serif;;font-style:normal;font-weight:700;font-size:12px;line-height:14px;text-align:center;text-transform:uppercase;color:#fff;background:#d7565f;border:1px solid rgba(255,255,255,.25);box-sizing:border-box;border-radius:5px}</style>
+      <style>@media (-ms-high-contrast:active){.mat-toolbar{outline:solid 1px}}.mat-toolbar-row,.mat-toolbar-single-row{display:flex;box-sizing:border-box;padding:0 16px;width:100%;flex-direction:row;align-items:center;white-space:nowrap}.mat-toolbar-multiple-rows{display:flex;box-sizing:border-box;flex-direction:column;width:100%}.mat-toolbar-multiple-rows{min-height:64px}.mat-toolbar-row,.mat-toolbar-single-row{height:64px}@media (max-width:599px){.mat-toolbar-multiple-rows{min-height:56px}.mat-toolbar-row,.mat-toolbar-single-row{height:56px}}</style>
+      <style>
+        body{
+          font-family: 'Montserrat', sans-serif !important;
+        }
+      </style>
+          <style>
+
+
+            .inner {
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                position: relative;
+            }
+      
+            #stopwatch,
+            .text {
+                font-family: Courier New, monospace;
+            }
+      
+            .bot-bar {
+                position: fixed;
+                bottom: 0;
+                height: 70px;
+                width: 100vw;
+                font-weight: bold;
+                display: none;
+                justify-content: center;
+                align-items: center;
+                background: rgba(33,33,33,0.8);
+                z-index: 9999 !important;
+            }
+    
+            
+            .finish {
+                position: fixed;
+                font-weight: bold;
+                width: 100%;
+                padding: 20px;
+                margin-right: 10px;
+                height: 100%;
+                display: none;
+                border-radius: 6px;
+                background: rgba(0, 0, 0, 0.8);
+                z-index: 9999999;
+                text-align: center;
+            }
+        </style>
+    </head>
+   <body style="background-color: rgb(234, 234, 241);" class="modal-open">
+      <app-root _nghost-lxx-c0="" ng-version="8.0.0">
+         <router-outlet _ngcontent-lxx-c0=""></router-outlet>
+         <app-dashboard _nghost-lxx-c1="" class="ng-star-inserted">
+            <mat-sidenav-container _ngcontent-lxx-c1="" class=" mat-drawer-container mat-sidenav-container">
+               <!---->
+               <div class="mat-drawer-backdrop ng-star-inserted"></div>
+               <!---->
+               <mat-sidenav-content cdkscrollable="" class="mat-drawer-content mat-sidenav-content ng-star-inserted">
+                  <div _ngcontent-lxx-c1="" class="leftNav" fxshow="true" fxshow.xs="false">
+                     <div _ngcontent-lxx-c1="" style="width: 260px; height: 60px; margin-left: 8px; margin-top: 37px; border-radius: 15px;
+                        border: 1px solid rgba(255, 255, 255, 0.05); background-color: rgba(0, 0, 0, 0.1);"><img _ngcontent-lxx-c1="" alt="Discord Avatar" class="myAvatar" height="40" width="40" src="./test_page_tohru_files/logo.png" style="visibility: visible;"><span _ngcontent-lxx-c1="" class="discriminator">Restock Sim</span><a _ngcontent-lxx-c1="" class="signOut" style="visibility: visible;">Sign Out</a></div>
+                     <mat-list _ngcontent-lxx-c1="" class="mat-list mat-list-base" style="margin-top: 23px;">
+                        <a _ngcontent-lxx-c1="" disableripple="" mat-button="" routerlink="/dashboard/license" style="width: 100%; margin: 0; padding: 0;" class="mat-button" tabindex="0" aria-disabled="false">
+                           <span class="mat-button-wrapper">
+                              <div _ngcontent-lxx-c1="" class="linkBox activeBox" routerlink="/dashboard/license" tabindex="0"></div>
+                              <mat-list-item _ngcontent-lxx-c1="" class="linkText mat-list-item mat-list-item-avatar mat-list-item-with-avatar active" routerlink="/dashboard/license" tabindex="0">
+                                 <div class="mat-list-item-content">
+                                    <div class="mat-list-item-ripple mat-ripple" mat-ripple=""></div>
+                                    <div class="mat-list-text"></div>
+                                    Licenses 
+                                 </div>
+                              </mat-list-item>
+                           </span>
+                           <div class="mat-button-ripple mat-ripple" matripple=""></div>
+                           <div class="mat-button-focus-overlay"></div>
+                        </a>
+                        <a _ngcontent-lxx-c1="" disableripple="" mat-button="" style="width: 100%; margin: 0; padding: 0;" class="mat-button" tabindex="0" aria-disabled="false">
+                           <span class="mat-button-wrapper">
+                              <div _ngcontent-lxx-c1="" class="linkBox" tabindex="0"></div>
+                              <mat-list-item _ngcontent-lxx-c1="" class="linkText mat-list-item mat-list-item-avatar mat-list-item-with-avatar" tabindex="0">
+                                 <div class="mat-list-item-content">
+                                    <div class="mat-list-item-ripple mat-ripple" mat-ripple=""></div>
+                                    <div class="mat-list-text"></div>
+                                    Quick Task 
+                                 </div>
+                              </mat-list-item>
+                           </span>
+                           <div class="mat-button-ripple mat-ripple" matripple=""></div>
+                           <div class="mat-button-focus-overlay"></div>
+                        </a>
+                        <div _ngcontent-lxx-c1="" style="width: 100%; position: absolute; bottom: 0; left: 0;"><img _ngcontent-lxx-c1="" src="./test_page_tohru_files/logo.svg" style="margin-bottom: 27px; margin-left: 55px"><span _ngcontent-lxx-c1="" style="position: absolute; bottom: 32px; left: 120px; color: #E8555F; font-size: 24px; font-family: &#39;Ramabhadra&#39;, sans-serif; letter-spacing: 3.9px;">TOHRU</span></div>
+                     </mat-list>
+                  </div>
+                  <div _ngcontent-lxx-c1="" class="mainContent">
+                     <router-outlet _ngcontent-lxx-c1=""></router-outlet>
+                     <app-license-dashboard _nghost-lxx-c6="" class="ng-star-inserted">
+                        <div class="cdk-visually-hidden cdk-focus-trap-anchor" aria-hidden="true"></div>
+                        <mat-sidenav _ngcontent-lxx-c6="" class="mat-drawer mat-sidenav ng-tns-c7-0 ng-trigger ng-trigger-transform mat-drawer-over" id="dashSidebar" mode="over" role="navigation" tabindex="-1" style="box-shadow: none; visibility: hidden;">
+                           <div class="mat-drawer-inner-container">
+                              <mat-nav-list _ngcontent-lxx-c6="" class="mat-nav-list mat-list-base" role="navigation">
+                                 <a _ngcontent-lxx-c6="" class="mat-list-item" mat-list-item="" routerlink="/dashboard/license" href="https://tohru.io/#/dashboard/license">
+                                    <div class="mat-list-item-content">
+                                       <div class="mat-list-item-ripple mat-ripple" mat-ripple=""></div>
+                                       <div class="mat-list-text"></div>
+                                       Licenses
+                                    </div>
+                                 </a>
+                                 <a _ngcontent-lxx-c6="" class="mat-list-item" mat-list-item="" routerlink="/dashboard/purchases" href="https://tohru.io/#/dashboard/purchases">
+                                    <div class="mat-list-item-content">
+                                       <div class="mat-list-item-ripple mat-ripple" mat-ripple=""></div>
+                                       <div class="mat-list-text"></div>
+                                       Purchases
+                                    </div>
+                                 </a>
+                                 <a _ngcontent-lxx-c6="" class="mat-list-item" mat-list-item="" routerlink="/dashboard/tasks" href="https://tohru.io/#/dashboard/tasks">
+                                    <div class="mat-list-item-content">
+                                       <div class="mat-list-item-ripple mat-ripple" mat-ripple=""></div>
+                                       <div class="mat-list-text"></div>
+                                       Quick Tasks
+                                    </div>
+                                 </a>
+                              </mat-nav-list>
+                           </div>
+                        </mat-sidenav>
+                        <div class="cdk-visually-hidden cdk-focus-trap-anchor" aria-hidden="true"></div>
+                        <mat-toolbar _ngcontent-lxx-c6="" class="topBar mat-toolbar mat-toolbar-single-row" id="topBar" style="flex-direction: row; box-sizing: border-box; display: flex;">
+                           <h1 _ngcontent-lxx-c6="" class="headerText"> Licenses </h1>
+                           <div _ngcontent-lxx-c6="" fxflex="" style="flex: 1 1 0%; box-sizing: border-box;"></div>
+                           <div _ngcontent-lxx-c6="" fxshow="false" fxshow.xs="true" style="display: none;">
+                              <button _ngcontent-lxx-c6="" aria-label="Toggle sidenav" color="primary" mat-icon-button="" type="button" class="mat-icon-button mat-primary">
+                                 <span class="mat-button-wrapper">
+                                    <mat-icon _ngcontent-lxx-c6="" aria-label="Side nav toggle icon" class="mat-icon notranslate material-icons mat-icon-no-color" role="img" aria-hidden="true">menu</mat-icon>
+                                 </span>
+                                 <div class="mat-button-ripple mat-ripple mat-button-ripple-round" matripple=""></div>
+                                 <div class="mat-button-focus-overlay"></div>
+                              </button>
+                           </div>
+                        </mat-toolbar>
+                        <div _ngcontent-lxx-c6="" class="mainContent" id="mainContent">
+                           <div _ngcontent-lxx-c6=""><span _ngcontent-lxx-c6="" class="subHeader">Upon refreshing the page, the card element will appear under Available. Click on it!</span></div>
+                           <div _ngcontent-lxx-c6="" style="margin-top: 14px;"><a _ngcontent-lxx-c6="" class="subHeader"><img _ngcontent-lxx-c6="" src="./test_page_tohru_files/discord.svg" style="width: 100px; height: auto;"></a></div>
+                           <div _ngcontent-lxx-c6="" style="margin-top: 28px;"><span _ngcontent-lxx-c6="" class="subHeader">Available</span></div>
+                           <div _ngcontent-lxx-c6="" class="license" style="margin-top: 10px; text-align: center; display: block;" id="license">
+                              <div _ngcontent-lxx-c6="" class="topLicense">
+                                 <div _ngcontent-lxx-c6="" class="priceBox"><span _ngcontent-lxx-c6="" class="priceText">$200</span></div>
+                                 <div _ngcontent-lxx-c6=""><img _ngcontent-lxx-c6="" src="./test_page_tohru_files/logoWhite.svg"></div>
+                                 <div _ngcontent-lxx-c6=""><span _ngcontent-lxx-c6="" class="cardTitle">TOHRU</span></div>
+                                 <div _ngcontent-lxx-c6="" style="margin-top: 8px;"><span _ngcontent-lxx-c6="" class="cardSubtitle">ALL-IN-ONE BOT</span></div>
+                              </div>
+                              <div _ngcontent-lxx-c6="" class="bottomLicense">
+                                 <div _ngcontent-lxx-c6="" style="padding-top: 15px;" data-toggle="modal" data-target="#purchase"><span _ngcontent-lxx-c6="" class="purchaseText" data-toggle="modal" data-target="#purchase">Purchase</span><img _ngcontent-lxx-c6="" src="./test_page_tohru_files/rightArrow.svg" style="position: relative; left: 6px; top: 2px;"></div>
+                              </div>
+                           </div>
+                           <div _ngcontent-lxx-c6="" style="margin-top: 30px;"><span _ngcontent-lxx-c6="" class="subHeader">Your Licenses</span></div>
+                           <!---->
+                        </div>
+                     </app-license-dashboard>
+                  </div>
+               </mat-sidenav-content>
+            </mat-sidenav-container>
+         </app-dashboard>
+      </app-root>
+
+      <div class="finish" id="finish">
+        <div class="inner">
+            <h2 style="text-align:center;color:white;font-size: 28px !important;margin-bottom:0px;margin-top:0px;">
+                You finished in...
+            </h2>
+            <h2 style="text-align:center;color:#42d97c;font-size: 48px !important;margin-bottom:0px;margin-top:0px;">
+                <span class="text" id="text"></span>
+            </h2>
+            <h2 style="text-align:center;color:white;font-size: 18px !important;margin-bottom:0px;margin-top:0px;">
+                You can do better!
+            </h2>
+            <button id="tryagain" style="background-color:#42d97c;border:none;font-size:28px;max-width:420px; color:white;width:100%;padding:10px;margin-top:15px;text-align:center">Try
+                Again
+            </button>
+            <br>
+        </div>
+    </div>
+
+        <div class="bot-bar" id="bar" style="display: flex;">
+      <h2 style="text-align:center;color:#42d97c;font-size: 48px !important;margin-bottom:0px;margin-top:0px" class="countHolder">
+          <span id="stopwatch">09:13:221</span>
+      </h2>
+  </div>
+
+  <link rel="stylesheet" href="./test_page_tohru_files/bootstrap.min.css">
+  <script src="./test_page_tohru_files/bootstrap.min.js"></script>
+
+  <!-- Modal -->
+<div class="modal fade show" id="purchase" tabindex="-1" role="dialog" aria-labelledby="purchase" style="border-radius: 5px; border: none; display: block;" aria-modal="true">  
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-body" style="background-color: #eaeaea;border-radius: 5px;border:none">
+            <form id="payment-form">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="fullName">Full Name</label>
+                    <input type="text" class="form-control" id="fullName" autocomplete="name" name="fullName" required="">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="email">E-Mail Address</label>
+                    <input type="email" class="form-control" id="email" autocomplete="email" name="email" required="">
+                </div>
+            </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label for="card-information">Card Information</label>
+                    <div id="card-information" class="form-control StripeElement StripeElement--invalid"><div class="__PrivateStripeElement" style="margin: 0px !important; padding: 0px !important; border: none !important; display: block !important; background: transparent !important; position: relative !important; opacity: 1 !important;"><iframe frameborder="0" allowtransparency="true" scrolling="no" name="__privateStripeFrame5" allowpaymentrequest="true" src="./test_page_tohru_files/elements-inner-card-19bb803460131f84eb9f824552e24833.html" title="Secure payment input frame" style="border: none !important; margin: 0px !important; padding: 0px !important; width: 1px !important; min-width: 100% !important; overflow: hidden !important; display: block !important; user-select: none !important; height: 19.2px;"></iframe><input class="__PrivateStripeElement-input" aria-hidden="true" aria-label=" " autocomplete="false" maxlength="1" style="border: none !important; display: block !important; position: absolute !important; height: 1px !important; top: 0px !important; left: 0px !important; padding: 0px !important; margin: 0px !important; width: 100% !important; opacity: 0 !important; background: transparent !important; pointer-events: none !important; font-size: 16px !important;"></div></div>
+                </div>
+            </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label for="fullName">What is 1 + 2?</label>
+                    <input type="number" class="form-control" id="securityQuestion" autocomplete="securityQuestion" name="securityQuestion" required=""> 
+                </div>
+            </div>
+        </div>
+            <div class="row mt-2">
+                <div class="col-md-12">
+            <button type="submit" class="btn btn-danger" style="font-weight: bold;color:white;background-color: #d94e5b;width: 100%;">Purchase</button>
+            
+        </div>
+        </div></form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <style>
+      .form-control{
+          border:none;
+      }
+
+      label{
+          font-weight: bold;
+          font-size: 12px;
+      }
+  </style>
+<script>
+    var stripe = Stripe('pk_test_H8wx9uJDthOIt0EuK8klG2pJ');
+
+    // Create an instance of Elements.
+    var elements = stripe.elements();
+
+    // Custom styling can be passed to options when creating an Element.
+    // (Note that this demo uses a wider set of styles than the guide below.)
+    var style = {
+        base: {
+            color: '#000000',
+            fontFamily: 'Montserrat',
+            fontSmoothing: 'antialiased',
+            fontSize: '16px',
+            '::placeholder': {
+                color: '#ffffff'
+            }
+        },
+        invalid: {
+            color: '#fa755a',
+            iconColor: '#fa755a'
+        }
+    };
+
+    // Create an instance of the card Element.
+    var card = elements.create('card', {
+        style: style
+    });
+
+    // Add an instance of the card Element into the `card-element` <div>.
+    card.mount('#card-information');
+    </script><iframe frameborder="0" allowtransparency="true" scrolling="no" name="__privateStripeController1" allowpaymentrequest="true" src="./test_page_tohru_files/controller-432166ddf868b73ed201cfcaffa7f7b8.html" aria-hidden="true" tabindex="-1" style="border: none !important; margin: 0px !important; padding: 0px !important; width: 1px !important; min-width: 100% !important; overflow: hidden !important; display: block !important; visibility: hidden !important; position: fixed !important; height: 1px !important; pointer-events: none !important; user-select: none !important;"></iframe>
+
+  <script>
+
+document.getElementById("tryagain").onclick = function execute() {
+            window.close()
+        }
+            
+            var saved = false
+    
+    
+            var form = document.getElementById('payment-form');
+            form.addEventListener('submit', function (event) {
+                event.preventDefault();
+                stripe.createToken(card).then(function (result) {
+                if (result.error || document.getElementById("securityQuestion").value != 3) {
+                    return
+                } else {
+                $('#purchase').modal('hide');
+                document.getElementById('mainContent').style.display = "none";
+                document.getElementById('topBar').style.display = "none";
+                        document.getElementById("bar").style.display = "none";
+                        document.getElementById("text").innerHTML = document.getElementById("stopwatch")
+                            .innerHTML;
+                        document.getElementById("finish").style.display = "block";
+                        document.getElementById("root").style.display = "none";
+                        userid = getCookie("userID")
+    
+                        usertime = document.getElementById("text").textContent
+    
+                        const timeStr = usertime
+    
+                        const bot = "tohru"
+    
+                        type = getCookie("type")
+    
+                        if(type == "instagram"){
+                            method = getCookie("simIG")
+                        }else if(type == "twitter"){
+                            method = getCookie("simTwit")
+                        }else if(type == "discord"){
+                            method = getCookie("simDisc")
+                        }else{
+                            method = 'normal'
+                        }
+                        
+                        let timer = usertime;
+                        convertToMs_array = timer.split(":");
+                        timeInt = parseInt(convertToMs_array[0]*60*1000) + parseInt(convertToMs_array[1]*1000) + parseInt(convertToMs_array[2]);
+    
+                        bodyinfo = { userid, timeStr, timeInt, bot, type, method }
+    
+                        document.getElementById("saveresult").onclick = function execute() {
+                            if(saved) return;
+    
+                            saved = true
+    
+                            $("#saveresult").text("Saved!")
+    
+                            fetch('/record', {
+                                method: 'POST',
+                                headers: {
+                                    'Content-Type': 'application/json'
+                                },
+                                body: JSON.stringify(bodyinfo)
+                            }).then(response =>{
+                                return response.json()
+                            }).then(data =>{
+                                console.log(data)
+                            }).catch(error =>{
+                                console.log(error)
+                            })
+    
+                        }
+                    }
+            });
+                    }); 
+        </script>
+
+<script>
+  function setCookie(cname, cvalue, exdays) {
+      var d = new Date();
+      d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+      var expires = "expires=" + d.toUTCString();
+      document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+  }
+
+  function getCookie(cname) {
+      var name = cname + "=";
+      var decodedCookie = decodeURIComponent(document.cookie);
+      var ca = decodedCookie.split(';');
+      for (var i = 0; i < ca.length; i++) {
+          var c = ca[i];
+          while (c.charAt(0) == ' ') {
+              c = c.substring(1);
+          }
+          if (c.indexOf(name) == 0) {
+              return c.substring(name.length, c.length);
+          }
+      }
+      return "";
+  }
+
+  var Stopwatch = function (elem, options) {
+
+      var timer = createTimer(),
+          startButton = createButton("start", start),
+          starter = true,
+          stopButton = createButton("stop", stop),
+          resetButton = createButton("reset", reset),
+          offset,
+          htim,
+          clock,
+          interval;
+
+
+      // default options
+      options = options || {};
+      options.delay = options.delay || 1;
+
+      // append elements
+      elem.appendChild(timer);
+
+      // initialize
+      reset();
+
+      // private functions
+      function createTimer() {
+          return document.createElement("span");
+      }
+
+      function createButton(action, handler) {
+          var a = document.createElement("a");
+          a.href = "#" + action;
+          a.innerHTML = action;
+          a.addEventListener("click", function (event) {
+              handler();
+              event.preventDefault();
+          });
+          return a;
+      }
+
+      function start() {
+          if (!interval) {
+              var clockCook = getCookie("clock");
+              var offsetCook = getCookie("offset");
+              if (clockCook != "" && offsetCook != "") {
+                  offset = Number(offsetCook);
+                  clock = Number(clock);
+                  interval = setInterval(update, options.delay);
+              } else {
+                  offset = Date.now();
+                  setCookie("offset", offset);
+                  interval = setInterval(update, options.delay);
+              }
+          }
+      }
+
+      function stop() {
+          if (interval) {
+              clearInterval(interval);
+              interval = null;
+          }
+      }
+
+      function reset() {
+          clock = 0;
+      }
+
+      function timeConv(millis) {
+          var minutes = Math.floor(millis / 60000);
+          var seconds = ((millis % 60000) / 1000);
+          var mills = pad(getDecimal(seconds), 3);
+          return [minutes, seconds.toFixed(0), mills];
+      }
+
+      function pad(n, width, z) {
+          z = z || '0';
+          n = n + '';
+          return n.length >= width ? n : new Array(width - n.length + 1).join(z) + n;
+      }
+
+      function update() {
+          clock += delta();
+          setCookie("clock", clock);
+          render(timeConv(clock));
+      }
+
+      function getDecimal(n) {
+          return ((n - Math.floor(n)).toFixed(3) * 1000);
+      }
+
+      function render(resp) {
+          htim = "";
+          if (resp[0] <= 0) {
+              htim += "00";
+          } else {
+              if (resp[0] >= 10) {
+                  htim += resp[0];
+              } else {
+                  htim += "0" + resp[0].toString();
+              }
+          }
+          htim += ":";
+          if (resp[1] <= 0) {
+              htim += "00";
+          } else {
+              if (resp[1] >= 10) {
+                  htim += resp[1];
+              } else {
+                  htim += "0" + resp[1].toString();
+              }
+          }
+          htim += ":";
+          htim += resp[2];
+          elem.innerHTML = htim;
+          if (starter) {
+              $(".bot-bar").css("display", "flex");
+              starter = false;
+          }
+
+
+      }
+
+      function delta() {
+          var now = Date.now(),
+              d = now - offset;
+
+          offset = now;
+          return d;
+      }
+
+      // public API
+      this.start = start;
+      this.stop = stop;
+      this.reset = reset;
+  };
+
+  var urlParams = new URLSearchParams(window.location.search);
+  $(document).ready(function () {
+      var elem = document.getElementById("stopwatch");
+      var timer = new Stopwatch(elem, {
+          delay: 10
+      });
+      timer.start();
+  });
+
+
+</script>
+
+<script>
+$( document ).ready(function() {
+    var type = getCookie("type");
+    let determinator = Math.floor(Math.random() * 100) + 1;
+    console.log(determinator)
+    if (type != "normal"){
+        document.getElementById("license").style.display = "block";
+    }else if(determinator < 33){
+        document.getElementById("license").style.display = "block";
+    }
+    return
+});
+</script>
+
+  
+   
+<iframe frameborder="0" allowtransparency="true" scrolling="no" name="__privateStripeMetricsController0" allowpaymentrequest="true" src="./test_page_tohru_files/m-outer-090169779cdf49fad5ab0e59c999f664.html" aria-hidden="true" tabindex="-1" style="border: none !important; margin: 0px !important; padding: 0px !important; width: 1px !important; min-width: 100% !important; overflow: hidden !important; display: block !important; visibility: hidden !important; position: fixed !important; height: 1px !important; pointer-events: none !important; user-select: none !important;"></iframe><iframe frameborder="0" allowtransparency="true" scrolling="no" name="__privateStripeMetricsController0" allowpaymentrequest="true" src="./test_page_tohru_files/m-outer-a0f6c1465b8d9aab778cf2913d1d3c86.html" aria-hidden="true" tabindex="-1" style="border: none !important; margin: 0px !important; padding: 0px !important; width: 1px !important; min-width: 100% !important; overflow: hidden !important; display: block !important; visibility: hidden !important; position: fixed !important; height: 1px !important; pointer-events: none !important; user-select: none !important;"></iframe><div class="modal-backdrop fade show"></div></body></html>
