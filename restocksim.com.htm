@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<!-- saved from url=(0040)https://restocksim.com/qbotsim/purchase/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="./restocksim.com_files/bootstrap.min.css">
+<script src="./restocksim.com_files/saved_resource"></script><script data-dapp-detection="">
+(function() {
+  let alreadyInsertedMetaTag = false
+
+  function __insertDappDetected() {
+    if (!alreadyInsertedMetaTag) {
+      const meta = document.createElement('meta')
+      meta.name = 'dapp-detected'
+      document.head.appendChild(meta)
+      alreadyInsertedMetaTag = true
+    }
+  }
+
+  if (window.hasOwnProperty('web3')) {
+    // Note a closure can't be used for this var because some sites like
+    // www.wnyc.org do a second script execution via eval for some reason.
+    window.__disableDappDetectionInsertion = true
+    // Likely oldWeb3 is undefined and it has a property only because
+    // we defined it. Some sites like wnyc.org are evaling all scripts
+    // that exist again, so this is protection against multiple calls.
+    if (window.web3 === undefined) {
+      return
+    }
+    __insertDappDetected()
+  } else {
+    var oldWeb3 = window.web3
+    Object.defineProperty(window, 'web3', {
+      configurable: true,
+      set: function (val) {
+        if (!window.__disableDappDetectionInsertion)
+          __insertDappDetected()
+        oldWeb3 = val
+      },
+      get: function () {
+        if (!window.__disableDappDetectionInsertion)
+          __insertDappDetected()
+        return oldWeb3
+      }
+    })
+  }
+})()</script>
+<script src="./restocksim.com_files/jquery.min.js"></script>
+</head>
+<body style="background-color: #020202;">
+    <style>
+                .bot-bar {
+            position: fixed;
+            bottom: 0;
+            height: 80px;
+            width: 100vw;
+            font-weight: bold;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 9999;
+        }
+
+        .finish {
+            position: fixed;
+            font-weight: bold;
+            width: 100%;
+            padding: 20px;
+            margin-right: 10px;
+            height: 100%;
+            display: none;
+            border-radius: 6px;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 9999999;
+            text-align: center;
+        }
+
+        .inner {
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            position: relative;
+        }
+
+        #stopwatch,
+        .text {
+            font-family: Courier New, monospace;
+        }
+
+
+
+    </style>
+    <div class="finish" id="finish">
+        <div class="inner">
+            <h2 style="text-align:center;color:white;font-size: 28px !important;margin-bottom:0px;margin-top:0px;">
+                You finished in...
+            </h2>
+            <h2 style="text-align:center;color:#42d97c;font-size: 48px !important;margin-bottom:0px;margin-top:0px;">
+                <span class="text" id="text"></span>
+            </h2>
+            <h2 style="text-align:center;color:white;font-size: 18px !important;margin-bottom:0px;margin-top:0px;">
+                You can do better!
+            </h2>
+            <button id="tryagain" style="background-color:#42d97c;border:none;font-size:28px;max-width:420px; color:white;width:100%;padding:10px;margin-top:15px;text-align:center">Try
+                Again
+            </button>
+            <br>
+            <button id="saveresult" style="background-color:#42d97c;border:none;font-size:28px;max-width:420px; color:white;width:100%;padding:10px;margin-top:15px;text-align:center">Save
+                Result
+            </button>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row" style="position: relative; transform: translateY(50%);">
+        <div class="col-md-4 offset-md-4" style="color:white">
+            <h1>BUY QBotAIO</h1>
+            <h5 class="mt-2">$300 - You Will Not Be Charged</h5>
+            <h5 class="mt-2">LICENSE TYPE: RENEW</h5>
+            <form id="payment-form">
+            <input class="form-control" id="email" autocomplete="email" placeholder="E-mail address" required="">
+            <div id="card-element" class="form-control mt-4 StripeElement StripeElement--invalid"><div class="__PrivateStripeElement" style="margin: 0px !important; padding: 0px !important; border: none !important; display: block !important; background: transparent !important; position: relative !important; opacity: 1 !important;"><iframe frameborder="0" allowtransparency="true" scrolling="no" name="__privateStripeFrame5" allowpaymentrequest="true" src="./restocksim.com_files/elements-inner-card-19bb803460131f84eb9f824552e24833.html" title="Secure payment input frame" style="border: none !important; margin: 0px !important; padding: 0px !important; width: 1px !important; min-width: 100% !important; overflow: hidden !important; display: block !important; user-select: none !important; height: 19.2px;"></iframe><input class="__PrivateStripeElement-input" aria-hidden="true" aria-label=" " autocomplete="false" maxlength="1" style="border: none !important; display: block !important; position: absolute !important; height: 1px !important; top: 0px !important; left: 0px !important; padding: 0px !important; margin: 0px !important; width: 100% !important; opacity: 0 !important; background: transparent !important; pointer-events: none !important; font-size: 16px !important;"></div></div>
+            <input type="submit" class="btn btn-success mt-4" style="width:100%" value="Purchase">
+
+        </form>
+        </div>
+    </div>
+    </div>
+
+
+
+    <div class="bot-bar" id="bar" style="display: flex;">
+        <h2 style="text-align:center;color:#42d97c;font-size: 48px !important;margin-bottom:0px;margin-top:0px;" class="countHolder">
+            <span id="stopwatch">00:26:999</span>
+        </h2>
+
+    </div>
+
+    
+    <script>
+        function setCookie(cname, cvalue, exdays) {
+            var d = new Date();
+            d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+            var expires = "expires=" + d.toUTCString();
+            document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+        }
+
+        function getCookie(cname) {
+            var name = cname + "=";
+            var decodedCookie = decodeURIComponent(document.cookie);
+            var ca = decodedCookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                    return c.substring(name.length, c.length);
+                }
+            }
+            return "";
+        }
+
+        var Stopwatch = function (elem, options) {
+
+            var timer = createTimer(),
+                startButton = createButton("start", start),
+                starter = true,
+                stopButton = createButton("stop", stop),
+                resetButton = createButton("reset", reset),
+                offset,
+                htim,
+                clock,
+                interval;
+
+
+            // default options
+            options = options || {};
+            options.delay = options.delay || 1;
+
+            // append elements     
+            elem.appendChild(timer);
+
+            // initialize
+            reset();
+
+            // private functions
+            function createTimer() {
+                return document.createElement("span");
+            }
+
+            function createButton(action, handler) {
+                var a = document.createElement("a");
+                a.href = "#" + action;
+                a.innerHTML = action;
+                a.addEventListener("click", function (event) {
+                    handler();
+                    event.preventDefault();
+                });
+                return a;
+            }
+
+            function start() {
+                if (!interval) {
+                    var clockCook = getCookie("clock");
+                    var offsetCook = getCookie("offset");
+                    if (clockCook != "" && offsetCook != "") {
+                        offset = Number(offsetCook);
+                        clock = Number(clock);
+                        interval = setInterval(update, options.delay);
+                    } else {
+                        offset = Date.now();
+                        setCookie("offset", offset);
+                        interval = setInterval(update, options.delay);
+                    }
+                }
+            }
+
+            function stop() {
+                if (interval) {
+                    clearInterval(interval);
+                    interval = null;
+                }
+            }
+
+            function reset() {
+                clock = 0;
+            }
+
+            function timeConv(millis) {
+                var minutes = Math.floor(millis / 60000);
+                var seconds = ((millis % 60000) / 1000);
+                var mills = pad(getDecimal(seconds), 3);
+                return [minutes, seconds.toFixed(0), mills];
+            }
+
+            function pad(n, width, z) {
+                z = z || '0';
+                n = n + '';
+                return n.length >= width ? n : new Array(width - n.length + 1).join(z) + n;
+            }
+
+            function update() {
+                clock += delta();
+                setCookie("clock", clock);
+                render(timeConv(clock));
+            }
+
+            function getDecimal(n) {
+                return ((n - Math.floor(n)).toFixed(3) * 1000);
+            }
+
+            function render(resp) {
+                htim = "";
+                if (resp[0] <= 0) {
+                    htim += "00";
+                } else {
+                    if (resp[0] >= 10) {
+                        htim += resp[0];
+                    } else {
+                        htim += "0" + resp[0].toString();
+                    }
+                }
+                htim += ":";
+                if (resp[1] <= 0) {
+                    htim += "00";
+                } else {
+                    if (resp[1] >= 10) {
+                        htim += resp[1];
+                    } else {
+                        htim += "0" + resp[1].toString();
+                    }
+                }
+                htim += ":";
+                htim += resp[2];
+                elem.innerHTML = htim;
+                if (starter) {
+                    $(".bot-bar").css("display", "flex");
+                    starter = false;
+                }
+
+
+            }
+
+            function delta() {
+                var now = Date.now(),
+                    d = now - offset;
+
+                offset = now;
+                return d;
+            }
+
+            // public API
+            this.start = start;
+            this.stop = stop;
+            this.reset = reset;
+        };
+
+        var urlParams = new URLSearchParams(window.location.search);
+        $(document).ready(function () {
+            var elem = document.getElementById("stopwatch");
+            var timer = new Stopwatch(elem, {
+                delay: 10
+            });
+            timer.start();
+            var pass = getCookie("simPass");
+            if (pass != "" && urlParams.get('password') == pass) {
+                $("#success").show();
+            } else {
+                $("#fail").show();
+            }
+        });
+
+        document.getElementById("tryagain").onclick = function execute() {
+            window.close()
+        }
+    </script>
+    <script src="./restocksim.com_files/jquery.min.js"></script>
+    <script>
+        var stripe = Stripe('pk_test_H8wx9uJDthOIt0EuK8klG2pJ');
+        var saved = false
+
+        // Create an instance of Elements.
+        var elements = stripe.elements();
+
+        // Custom styling can be passed to options when creating an Element.
+        // (Note that this demo uses a wider set of styles than the guide below.)
+        var style = {
+            base: {
+                color: '#000000',
+                fontFamily: 'inherit',
+                fontSmoothing: 'antialiased',
+                fontSize: '16px',
+                '::placeholder': {
+                    color: '#000000'
+                }
+            },
+            invalid: {
+                color: '#fa755a',
+                iconColor: '#fa755a'
+            }
+        };
+
+        // Create an instance of the card Element.
+        var card = elements.create('card', {
+            style: style
+        });
+
+        // Add an instance of the card Element into the `card-element` <div>.
+        card.mount('#card-element');
+
+        var form = document.getElementById('payment-form');
+        form.addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            stripe.createToken(card).then(function (result) {
+                if (result.error) {
+                    return
+                } else {
+                    document.getElementById("bar").style.display = "none";
+                    document.getElementById("text").innerHTML = document.getElementById("stopwatch")
+                        .innerHTML;
+                    document.getElementById("finish").style.display = "block";
+                    userid = getCookie("userID")
+
+                    usertime = document.getElementById("text").textContent
+
+                    const timeStr = usertime
+
+                    const bot = "qbot"
+
+                    type = getCookie("type")
+
+                    if(type == "instagram"){
+                        method = getCookie("simIG")
+                    }else if(type == "twitter"){
+                        method = getCookie("simTwit")
+                    }else if(type == "discord"){
+                        method = getCookie("simDisc")
+                    }else{
+                        method = 'normal'
+                    }
+                    
+                    let timer = usertime;
+                    convertToMs_array = timer.split(":");
+                    timeInt = parseInt(convertToMs_array[0]*60*1000) + parseInt(convertToMs_array[1]*1000) + parseInt(convertToMs_array[2]);
+
+                    bodyinfo = { userid, timeStr, timeInt, bot, type, method }
+
+                    document.getElementById("saveresult").onclick = function execute() {
+                        if(saved) return;
+
+                        saved = true
+
+                        $("#saveresult").text("Saved!")
+
+                        fetch('/record', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify(bodyinfo)
+                        }).then(response =>{
+                            return response.json()
+                        }).then(data =>{
+                            console.log(data)
+                        }).catch(error =>{
+                            console.log(error)
+                        })
+
+                    }
+                }
+            });
+        });
+    </script><iframe frameborder="0" allowtransparency="true" scrolling="no" name="__privateStripeController1" allowpaymentrequest="true" src="./restocksim.com_files/controller-432166ddf868b73ed201cfcaffa7f7b8.html" aria-hidden="true" tabindex="-1" style="border: none !important; margin: 0px !important; padding: 0px !important; width: 1px !important; min-width: 100% !important; overflow: hidden !important; display: block !important; visibility: hidden !important; position: fixed !important; height: 1px !important; pointer-events: none !important; user-select: none !important;"></iframe>
+<iframe frameborder="0" allowtransparency="true" scrolling="no" name="__privateStripeMetricsController0" allowpaymentrequest="true" src="./restocksim.com_files/m-outer-090169779cdf49fad5ab0e59c999f664.html" aria-hidden="true" tabindex="-1" style="border: none !important; margin: 0px !important; padding: 0px !important; width: 1px !important; min-width: 100% !important; overflow: hidden !important; display: block !important; visibility: hidden !important; position: fixed !important; height: 1px !important; pointer-events: none !important; user-select: none !important;"></iframe></body></html>
