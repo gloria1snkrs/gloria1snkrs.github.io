@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 59.1 (86144) - https://sketch.com -->
+    <title>close</title>
+    <desc>Created with Sketch.</desc>
+    <g id="close" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect id="Rectangle" opacity="0.396275112" x="0" y="0" width="24" height="24" rx="10.24"></rect>
+        <path d="M12.4,6 C13.1069245,6 13.68,6.57307552 13.68,7.28 L13.68,11.12 L17.52,11.12 C18.2269245,11.12 18.8,11.6930755 18.8,12.4 C18.8,13.1069245 18.2269245,13.68 17.52,13.68 L13.68,13.68 L13.68,17.52 C13.68,18.2269245 13.1069245,18.8 12.4,18.8 C11.6930755,18.8 11.12,18.2269245 11.12,17.52 L11.12,13.68 L7.28,13.68 C6.57307552,13.68 6,13.1069245 6,12.4 C6,11.6930755 6.57307552,11.12 7.28,11.12 L11.12,11.12 L11.12,7.28 C11.12,6.57307552 11.6930755,6 12.4,6 Z" id="Combined-Shape" fill="#475165" transform="translate(12.400000, 12.400000) rotate(45.000000) translate(-12.400000, -12.400000) "></path>
+    </g>
+</svg>
